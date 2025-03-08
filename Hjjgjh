@@ -774,7 +774,7 @@ local function reloadMissile(bool)
                                     end
                                 end
                             end)
-                            Debris:AddItem(connection, 60)
+                            Debris:AddItem(connectio, 60)
                             if waiting and waiting.Value == localPlayer.Name then
                                 for _, v in pairs(child:GetChildren()) do
                                     if v:IsA("BasePart") then
@@ -1176,10 +1176,9 @@ ObjectGrabTab:AddToggle({
 ObjectGrabTab:AddParagraph("Anchor grab information", "If someone grabs your anchored parts, they will fall and you will need to position them again!")
 
 ObjectGrabTab:AddButton({
-    Name = "Anchor Parts",    -- Added comma here
+    Name = "Unanchor parts",
     Callback = cleanupAnchoredParts
 })
-
 
 ObjectGrabTab:AddParagraph("Compile?", "(New) This option allows you to compile all the anchored parts into one. To control this 'Build', you need to move the header part. The first part you grabbed will be the header and will be highlighted green")
 
@@ -2371,7 +2370,7 @@ KeybindSection2:AddBind({
     Save = false,
     Flag = "ExplodeAllCachedBombsKeybind",
     Callback = function()
-        if #bombList == 0 then
+        if #bombList == 0 then 
             OrionLib:MakeNotification({Name = "No bombs", Content = "There are no cached bombs to explode", Image = "rbxassetid://4483345998", Time = 2})
             return
         end
@@ -2404,7 +2403,7 @@ KeybindSection2:AddBind({
     Save = false,
     Flag = "ExplodeAllCachedBombsOnNearestPlayerKeybind",
     Callback = function()
-        if #bombList == 0 then
+        if #bombList == 0 then 
             OrionLib:MakeNotification({Name = "No bombs", Content = "There are no cached bombs to explode", Image = "rbxassetid://4483345998", Time = 2})
             return
         end
@@ -2450,7 +2449,7 @@ KeybindSection2:AddToggle({
                     end
 					table.insert(lightbitparts, part)
 					for _, p in pairs(v:GetDescendants()) do
-						if p : IsA ( " BasePart " ) then
+						if p:IsA("BasePart") then
 							p.CanCollide = false
 						end
 					end
@@ -2497,7 +2496,7 @@ KeybindSection2:AddToggle({
 			
 			for i, v in ipairs(lightbitparts) do
 				for _, p in pairs(v:GetDescendants()) do
-					if p : IsA ( " BasePart " ) then
+					if p:IsA("BasePart") then
 						p.CanCollide = true
 					end
 				end
